@@ -6,7 +6,7 @@
 /*   By: tsito <tsito@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 20:48:57 by tsito             #+#    #+#             */
-/*   Updated: 2026/03/30 16:15:27 by tsito            ###   ########.fr       */
+/*   Updated: 2026/03/30 17:03:30 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int	ft_isdigit(int c);
 int	ft_isalnum(int c);
 int	ft_isascii(int c);
 int	ft_isprint(int c);
+int	ft_toupper(int c);
+int	ft_tolower(int c);
 
 #endif
