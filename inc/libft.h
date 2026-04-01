@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsito <tsito@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/27 20:48:57 by tsito             #+#    #+#             */
-/*   Updated: 2026/03/31 18:26:31 by tsito            ###   ########.fr       */
+/*   Created: 2026/04/01 19:33:09 by tsito             #+#    #+#             */
+/*   Updated: 2026/04/01 19:33:11 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-int		ft_strlen(const char *s);
+size_t	ft_strlen(const char *s);
 void	*ft_memset(void *b, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 
