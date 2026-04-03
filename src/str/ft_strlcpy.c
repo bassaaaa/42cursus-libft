@@ -6,7 +6,7 @@
 /*   By: tsito <tsito@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 19:28:45 by tsito             #+#    #+#             */
-/*   Updated: 2026/04/01 19:28:46 by tsito            ###   ########.fr       */
+/*   Updated: 2026/04/03 17:33:51 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	i = 0;
 	if (dstsize > 0)
 	{
-		while (*src && i < dstsize - 1)
+		while (src[i] && i < dstsize - 1)
 		{
 			dst[i] = src[i];
 			i++;
