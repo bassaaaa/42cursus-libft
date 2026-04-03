@@ -6,7 +6,7 @@
 /*   By: tsito <tsito@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 19:33:09 by tsito             #+#    #+#             */
-/*   Updated: 2026/04/03 16:57:08 by tsito            ###   ########.fr       */
+/*   Updated: 2026/04/03 17:20:46 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif
