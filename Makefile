@@ -40,7 +40,7 @@ $(OUTDIR)/%.o: %.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OUTDIR)
+	$(RM) $(RMFLAGS) $(OUTDIR)
 
 fclean: clean
 	$(RM) $(NAME_A)
