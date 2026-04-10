@@ -6,33 +6,45 @@
 #    By: tsito <tsito@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/01 19:33:39 by tsito             #+#    #+#              #
-#    Updated: 2026/04/01 19:33:40 by tsito            ###   ########.fr        #
+#    Updated: 2026/04/10 22:59:15 by tsito            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = program
+NAME		:= libft
+NAME_A		:=$(NAME).a
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CC			:= cc
+CFLAGS		:= -Wall -Wextra -Werror
+CFLAGS		+= -fno-builtin
+CPPFLAGS	:= -I.
+AR			:= ar
+ARFLAGS		:= rcs
+RM			:= rm
+RMFLAGS		:= -rf
 
-SRCS_DIR = src
-INCLUDES_DIR = inc
+SRCS		:= $(wildcard ft_ctype/*.c) \
+			   $(wildcard ft_put_fd/*.c) \
+			   $(wildcard ft_stdlib/*.c) \
+			   $(wildcard ft_string/*.c)
 
-SRCS =
-OBJS = $(addprefix $(SRCS_DIR)/, $(SRCS:.c=.o))
+OUTDIR		:= .out
+OBJS 		:= $(addprefix $(OUTDIR)/, $(SRCS:.c=.o))
 
-all: $(NAME)
+all: $(NAME_A)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -o $(NAME) $(OBJS)
+$(NAME_A): $(OBJS)
+	$(AR) $(ARFLAGS) $@ $^
+
+$(OUTDIR)/%.o: %.c
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OUTDIR)
 
 fclean: clean
-    rm -f $(NAME)
+	$(RM) $(NAME_A)
 
 re: fclean all
 
 .PHONY: all clean fclean re
-
