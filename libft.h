@@ -6,7 +6,7 @@
 /*   By: tsito <tsito@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 19:33:09 by tsito             #+#    #+#             */
-/*   Updated: 2026/04/11 11:30:01 by tsito            ###   ########.fr       */
+/*   Updated: 2026/04/11 11:38:41 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,14 @@ char				**ft_split(char const *s, char c);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 
+// ft_list
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+t_list				*ft_lstnew(void *content);
 
 #endif
