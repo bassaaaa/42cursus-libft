@@ -6,7 +6,7 @@
 /*   By: tsito <tsito@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 19:33:09 by tsito             #+#    #+#             */
-/*   Updated: 2026/04/11 15:04:26 by tsito            ###   ########.fr       */
+/*   Updated: 2026/04/11 15:16:29 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new_elem);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
+void				ft_lstadd_back(t_list **lst, t_list *new_elem);
 
 #endif
