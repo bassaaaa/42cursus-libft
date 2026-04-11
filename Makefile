@@ -22,10 +22,7 @@ ARFLAGS		:= rcs
 RM			:= rm
 RMFLAGS		:= -rf
 
-SRCS		:= $(wildcard ft_ctype/*.c) \
-			   $(wildcard ft_put_fd/*.c) \
-			   $(wildcard ft_stdlib/*.c) \
-			   $(wildcard ft_string/*.c)
+SRCS		:= $(wildcard *.c)
 
 OUTDIR		:= .out
 OBJS 		:= $(addprefix $(OUTDIR)/, $(SRCS:.c=.o))
