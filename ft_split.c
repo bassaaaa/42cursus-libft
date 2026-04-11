@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 static int	count_words(char const *s, char c);
 static char	*dup_word(char const *s, char c);
