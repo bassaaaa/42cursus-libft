@@ -6,7 +6,7 @@
 /*   By: tsito <tsito@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 19:33:09 by tsito             #+#    #+#             */
-/*   Updated: 2026/04/13 00:39:36 by tsito            ###   ########.fr       */
+/*   Updated: 2026/04/13 00:44:05 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,7 @@ void				ft_lstadd_back(t_list **lst, t_list *new_elem);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+						void (*del)(void *));
 
 #endif
