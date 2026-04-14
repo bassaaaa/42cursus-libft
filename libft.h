@@ -6,7 +6,7 @@
 /*   By: tsito <tsito@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 19:33:09 by tsito             #+#    #+#             */
-/*   Updated: 2026/04/13 00:44:05 by tsito            ###   ########.fr       */
+/*   Updated: 2026/04/14 17:25:35 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,6 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
-
-// ft_put_fd
-void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char *s, int fd);
-void				ft_putendl_fd(char *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
-
-// ft_stdlib
-int					ft_atoi(const char *str);
-char				*ft_itoa(int n);
-void				*ft_calloc(size_t count, size_t size);
 
 // ft_string
 void				*ft_memset(void *b, int c, size_t n);
@@ -61,6 +50,17 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+
+// ft_stdlib
+int					ft_atoi(const char *str);
+char				*ft_itoa(int n);
+void				*ft_calloc(size_t count, size_t size);
+
+// ft_put_fd
+void				ft_putchar_fd(char c, int fd);
+void				ft_putstr_fd(char *s, int fd);
+void				ft_putendl_fd(char *s, int fd);
+void				ft_putnbr_fd(int n, int fd);
 
 // ft_list
 typedef struct s_list
