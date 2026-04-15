@@ -6,7 +6,7 @@
 /*   By: tsito <tsito@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/01 19:33:09 by tsito             #+#    #+#             */
-/*   Updated: 2026/04/15 16:28:02 by tsito            ###   ########.fr       */
+/*   Updated: 2026/04/15 23:20:50 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+
+// ft_put_fd
+void				ft_putchar_fd(char c, int fd);
+void				ft_putstr_fd(char *s, int fd);
+void				ft_putendl_fd(char *s, int fd);
+void				ft_putnbr_fd(int n, int fd);
 
 // ft_string
 void				*ft_memset(void *b, int c, size_t n);
@@ -56,12 +62,6 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 void				*ft_calloc(size_t count, size_t size);
-
-// ft_put_fd
-void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char *s, int fd);
-void				ft_putendl_fd(char *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
 
 // ft_list
 typedef struct s_list
