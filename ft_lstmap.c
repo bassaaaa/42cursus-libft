@@ -12,8 +12,8 @@
 
 #include "libft.h"
 
-static t_list	*append_node(t_list **result, t_list **tail,
-				void *content, void (*del)(void *))
+static t_list	*append_node(t_list **result, t_list **tail, void *content,
+		void (*del)(void *))
 {
 	t_list	*new_node;
 
