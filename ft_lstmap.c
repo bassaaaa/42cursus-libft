@@ -6,21 +6,21 @@
 /*   By: tsito <tsito@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 00:43:27 by tsito             #+#    #+#             */
-/*   Updated: 2026/04/15 14:55:33 by tsito            ###   ########.fr       */
+/*   Updated: 2026/04/17 13:54:29 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_list	*append_node(t_list **result, t_list **tail, void *content,
+static t_list	*append_node(t_list **result, t_list **tail, void *mapped,
 		void (*del)(void *))
 {
 	t_list	*new_node;
 
-	new_node = ft_lstnew(content);
+	new_node = ft_lstnew(mapped);
 	if (!new_node)
 	{
-		del(content);
+		del(mapped);
 		ft_lstclear(result, del);
 		return (NULL);
 	}
