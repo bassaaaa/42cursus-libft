@@ -6,44 +6,56 @@
 /*   By: tsito <tsito@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 22:12:10 by tsito             #+#    #+#             */
-/*   Updated: 2026/04/15 16:28:07 by tsito            ###   ########.fr       */
+/*   Updated: 2026/04/21 17:41:08 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	convert_to_int(int sign, unsigned long result)
+static void	skip_space(const char **str)
 {
-	if (sign > 0 && result > (unsigned long)LONG_MAX)
-		return ((int)LONG_MAX);
-	if (sign < 0 && result > (unsigned long)LONG_MAX + 1)
-		return ((int)LONG_MIN);
-	return ((int)((long)result * sign));
+	while (**str == ' ' || **str == '\t' || **str == '\n' || **str == '\v'
+		|| **str == '\f' || **str == '\r')
+		(*str)++;
+}
+
+static int	get_sign(const char **str)
+{
+	int	sign;
+
+	sign = 1;
+	if (**str == '+' || **str == '-')
+	{
+		if (**str == '-')
+			sign = -1;
+		(*str)++;
+	}
+	return (sign);
+}
+
+static long	ft_strtol(const char *str)
+{
+	int		sign;
+	long	result;
+	int		digit;
+
+	skip_space(&str);
+	sign = get_sign(&str);
+	result = 0;
+	while (ft_isdigit(*str))
+	{
+		digit = (*str - '0') * sign;
+		if (sign > 0 && result > (LONG_MAX - digit) / 10)
+			return (LONG_MAX);
+		if (sign < 0 && result < (LONG_MIN - digit) / 10)
+			return (LONG_MIN);
+		result = result * 10 + digit;
+		str++;
+	}
+	return (result);
 }
 
 int	ft_atoi(const char *str)
 {
-	int				sign;
-	unsigned long	result;
-
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
-		|| *str == '\f' || *str == '\r')
-		str++;
-	sign = 1;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			sign = -sign;
-		str++;
-	}
-	result = 0;
-	while (*str && ft_isdigit(*str))
-	{
-		if (result > (ULONG_MAX - (unsigned long)(*str - '0')) / 10)
-			result = ULONG_MAX;
-		else
-			result = result * 10 + (unsigned long)(*str - '0');
-		str++;
-	}
-	return (convert_to_int(sign, result));
+	return ((int)ft_strtol(str));
 }
