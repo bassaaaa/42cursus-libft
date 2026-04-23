@@ -6,28 +6,11 @@
 /*   By: tsito <tsito@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/03 19:29:21 by tsito             #+#    #+#             */
-/*   Updated: 2026/04/03 22:14:53 by tsito            ###   ########.fr       */
+/*   Updated: 2026/04/23 22:15:33 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	count_words(char const *s, char c);
-static char	*dup_word(char const *s, char c);
-static char	**fill_split(char **split, char const *s, char c);
-static char	**free_split(char **split, int count);
-
-char	**ft_split(char const *s, char c)
-{
-	char	**split;
-
-	if (!s)
-		return (NULL);
-	split = malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (!split)
-		return (NULL);
-	return (fill_split(split, s, c));
-}
 
 static int	count_words(char const *s, char c)
 {
@@ -63,6 +46,17 @@ static char	*dup_word(char const *s, char c)
 	return (dup);
 }
 
+static char	**free_split(char **split, int count)
+{
+	while (count > 0)
+	{
+		count--;
+		free(split[count]);
+	}
+	free(split);
+	return (NULL);
+}
+
 static char	**fill_split(char **split, char const *s, char c)
 {
 	int	i;
@@ -87,13 +81,14 @@ static char	**fill_split(char **split, char const *s, char c)
 	return (split);
 }
 
-static char	**free_split(char **split, int count)
+char	**ft_split(char const *s, char c)
 {
-	while (count > 0)
-	{
-		count--;
-		free(split[count]);
-	}
-	free(split);
-	return (NULL);
+	char	**split;
+
+	if (!s)
+		return (NULL);
+	split = malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!split)
+		return (NULL);
+	return (fill_split(split, s, c));
 }
