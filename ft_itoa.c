@@ -6,26 +6,11 @@
 /*   By: tsito <tsito@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 18:47:52 by tsito             #+#    #+#             */
-/*   Updated: 2026/04/06 19:47:41 by tsito            ###   ########.fr       */
+/*   Updated: 2026/04/23 22:16:47 by tsito            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static size_t	count_digits(long n);
-static char		*fill_digits(long value, char *str, size_t len);
-
-char	*ft_itoa(int n)
-{
-	size_t	len;
-	char	*str;
-
-	len = count_digits(n);
-	str = malloc(len + 1);
-	if (!str)
-		return (NULL);
-	return (fill_digits(n, str, len));
-}
 
 static char	*fill_digits(long value, char *result, size_t len)
 {
@@ -61,4 +46,16 @@ static size_t	count_digits(long n)
 		len++;
 	}
 	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	size_t	len;
+	char	*str;
+
+	len = count_digits(n);
+	str = malloc(len + 1);
+	if (!str)
+		return (NULL);
+	return (fill_digits(n, str, len));
 }
