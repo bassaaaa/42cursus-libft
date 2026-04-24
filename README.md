@@ -171,12 +171,6 @@ typedef struct s_list
 - [Tripouille/libftTester](https://github.com/Tripouille/libftTester) — 境界値・メモリリーク検査に強いテスター
 - 本プロジェクトでは `libft-tester-tokyo` も併用（リポジトリに同梱）
 
-### 参考記事
-
-- [42 libft 攻略記事（Qiita, Zenn 等）](https://zenn.dev/) — `ft_split` のメモリ解放、`ft_itoa` の `INT_MIN` 対応などハマりどころの確認
-- Andrew Koenig『C Traps and Pitfalls』— ポインタと配列の落とし穴に関する古典
-- Brian W. Kernighan, Dennis M. Ritchie 『The C Programming Language (K&R)』— 第5章ポインタ・第7章入出力の基礎固め
-
 ### AI の活用について
 
 本プロジェクトでは Claude (Anthropic) を以下の用途で活用した：
@@ -185,9 +179,6 @@ typedef struct s_list
 |------|---------|
 | **コードレビュー** | 実装後の Norm 違反チェック、未定義動作（UB）の検出、境界値ケースの洗い出し |
 | **設計相談** | `ft_atoi` のオーバーフロー処理方針（saturation vs truncation）、`ft_strtol` 補助関数の導入判断 |
-| **仕様確認** | man page と標準 `atoi` / `strtol` の挙動差分の確認（`LONG_MAX` saturate + `int` truncate など） |
-| **テストケース生成** | `INT_MIN`・20桁オーバーフロー・連続符号・空白文字全種などのエッジケース洗い出し |
-| **採点シミュレーション** | peer eval / Moulinette で指摘されうるポイントの事前検証 |
 
 AI は**コードを書くためではなく、自分が書いたコードの品質を検証・議論するパートナー**として利用した。すべての実装は man page と 42 subject の要件を一次情報として自分の手で書き、AI の提案はあくまで参考意見として受け止めた上で採否を判断している。
 
