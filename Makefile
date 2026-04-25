@@ -6,24 +6,22 @@
 #    By: tsito <tsito@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/01 19:33:39 by tsito             #+#    #+#              #
-#    Updated: 2026/04/10 22:59:15 by tsito            ###   ########.fr        #
+#    Updated: 2026/04/25 17:27:15 by tsito            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= libft
-NAME_A		:=$(NAME).a
+NAME_A		:= $(NAME).a
 
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror
-CFLAGS		+= -fno-builtin
-CPPFLAGS	:= -I.
 AR			:= ar
 ARFLAGS		:= rcs
 RM			:= rm
 RMFLAGS		:= -rf
 
 SRCS		:= $(wildcard *.c)
-
+INCDIR		:= .
 OUTDIR		:= .out
 OBJS 		:= $(addprefix $(OUTDIR)/, $(SRCS:.c=.o))
 
@@ -34,7 +32,7 @@ $(NAME_A): $(OBJS)
 
 $(OUTDIR)/%.o: %.c
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
 
 clean:
 	$(RM) $(RMFLAGS) $(OUTDIR)
