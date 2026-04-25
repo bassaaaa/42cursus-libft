@@ -62,19 +62,6 @@ make
 cc -Wall -Wextra -Werror -I/path/to/libft -c main.c -o main.o
 cc main.o -L/path/to/libft -lft -o my_program
 ```
-
-ソースコード内での利用例:
-
-```c
-#include "libft.h"
-
-int main(void)
-{
-   // sample 
-    return (0);
-}
-```
-
 ## ライブラリの詳細
 
 `libft.a` が提供する関数は、大きく 5 つのカテゴリに分類される。
