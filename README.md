@@ -4,7 +4,7 @@
 
 ## Description
 
-**libft** は 42cursus の最初のプロジェクトであり、以降のすべてのプロジェクトで利用する自作C言語静的ライブラリ `libft.a` を作成する課題である。
+**libft** は 42cursus M0のプロジェクトであり、以降のすべてのプロジェクトで利用する自作C言語静的ライブラリ `libft.a` を作成する課題である。
 
 ### Mandatory part
 
@@ -54,14 +54,6 @@ make
 | `make fclean` | `libft.a` とオブジェクトファイルを削除 |
 | `make re` | `fclean` 後に再ビルド |
 
-### 自分のプロジェクトから使う
-
-自作プログラムとリンクする場合は、`libft.h` をインクルードし、`libft.a` をリンクする：
-
-```bash
-cc -Wall -Wextra -Werror -I/path/to/libft -c main.c -o main.o
-cc main.o -L/path/to/libft -lft -o my_program
-```
 ## ライブラリの詳細
 
 `libft.a` が提供する関数は、大きく 5 つのカテゴリに分類される。
@@ -80,12 +72,12 @@ cc main.o -L/path/to/libft -lft -o my_program
 | `ft_toupper` | 小文字 → 大文字変換 |
 | `ft_tolower` | 大文字 → 小文字変換 |
 | `ft_strlen` | 文字列長を返す |
-| `ft_memset` | メモリブロックを指定値で埋める |
-| `ft_bzero` | メモリブロックをゼロクリア |
-| `ft_memcpy` | メモリブロックをコピー（領域の重複不可） |
-| `ft_memmove` | メモリブロックをコピー（領域の重複可） |
+| `ft_memset` | メモリを指定値で埋める |
+| `ft_bzero` | メモリをゼロクリア |
+| `ft_memcpy` | メモリをコピー（領域の重複不可） |
+| `ft_memmove` | メモリをコピー（領域の重複可） |
 | `ft_memchr` | メモリ内から特定バイトを探索 |
-| `ft_memcmp` | メモリブロックを比較 |
+| `ft_memcmp` | メモリを比較 |
 | `ft_strlcpy` | 文字列をサイズ制限付きでコピー |
 | `ft_strlcat` | 文字列をサイズ制限付きで連結 |
 | `ft_strchr` | 文字列内から文字を前方探索 |
@@ -114,9 +106,9 @@ libc には存在しない、または類似品が存在しない便利関数群
 | `ft_putendl_fd` | 文字列 + 改行を指定 fd に出力 |
 | `ft_putnbr_fd` | 整数を指定 fd に出力 |
 
-### 3. Bonus — 連結リスト操作関数
+### 3. Part 3 — 連結リスト操作関数
 
-片方向連結リストのノード構造体 `t_list` と、それを操作する関数群を提供する。
+片方向連結リストのノード構造体 `t_list` と、それを操作する関数群。
 
 ```c
 typedef struct s_list
@@ -138,25 +130,11 @@ typedef struct s_list
 | `ft_lstiter` | 各ノードの content に関数を適用 |
 | `ft_lstmap` | 各ノードの content に関数を適用して新リストを生成 |
 
-### 4. ヘッダファイル
-
-すべての関数プロトタイプ、`t_list` 構造体、必要なマクロは `libft.h` に集約されている。利用側は `#include "libft.h"` するだけで全機能にアクセスできる。
-
 ## Resources
 
 ### 公式ドキュメント・リファレンス
 
-- [Linux man-pages](https://man7.org/linux/man-pages/) — `man 3 strlen` など、各関数の正確な仕様の一次情報
-- [cppreference.com](https://en.cppreference.com/w/c) — C標準ライブラリのリファレンス（特に戻り値や境界値の確認に有用）
-- [The GNU C Library Reference Manual](https://www.gnu.org/software/libc/manual/) — glibc の挙動と設計思想
-- [C99 / C11 標準規格ドラフト (ISO/IEC 9899)](https://www.open-std.org/jtc1/sc22/wg14/) — 未定義動作（UB）・処理系定義動作の確認
-
-### 42 関連資料
-
-- [42 Norme](https://github.com/42School/norminette) — `norminette` による Norm 準拠チェック
-- [42-Bern/libftest](https://github.com/alelievr/libft-unit-test) — libft 単体テスト用の定番ツール
-- [Tripouille/libftTester](https://github.com/Tripouille/libftTester) — 境界値・メモリリーク検査に強いテスター
-- 本プロジェクトでは `libft-tester-tokyo` も併用（リポジトリに同梱）
+- [usatile/libft-tester-tokyo](https://github.com/usatie/libft-tester-tokyo) — テストツール
 
 ### AI の活用について
 
