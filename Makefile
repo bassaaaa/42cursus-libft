@@ -6,7 +6,7 @@
 #    By: tsito <tsito@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/27 19:00:55 by tsito             #+#    #+#              #
-#    Updated: 2026/04/27 19:01:02 by tsito            ###   ########.fr        #
+#    Updated: 2026/04/27 19:02:20 by tsito            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ CFLAGS		:= -Wall -Wextra -Werror
 AR			:= ar
 ARFLAGS		:= rcs
 RM			:= rm
-RMFLAGS		:= -rf
 
 SRCS		:= $(wildcard *.c)
 INCDIR		:= .
@@ -35,10 +34,10 @@ $(OUTDIR)/%.o: %.c
 	$(CC) $(CFLAGS) -I$(INCDIR) -c $< -o $@
 
 clean:
-	$(RM) $(RMFLAGS) $(OUTDIR)
+	$(RM) -rf $(OUTDIR)
 
 fclean: clean
-	$(RM) $(NAME_A)
+	$(RM) -f $(NAME_A)
 
 re: fclean all
 
