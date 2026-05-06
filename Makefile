@@ -6,17 +6,17 @@
 #    By: tsito <tsito@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/27 19:00:55 by tsito             #+#    #+#              #
-#    Updated: 2026/05/06 18:06:50 by tsito            ###   ########.fr        #
+#    Updated: 2026/05/06 18:35:29 by tsito            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= libft
-NAME_A		:= $(NAME).a
+NAME			:= libft
+NAME_A			:= $(NAME).a
 
-CFLAGS		:= -Wall -Wextra -Werror
-ARFLAGS		:= rcs
+CFLAGS			:= -Wall -Wextra -Werror
+ARFLAGS			:= rcs
 
-SRCS		:= ft_ctype/ft_isalnum.c \
+SRCS			:= ft_ctype/ft_isalnum.c \
 	ft_ctype/ft_isalpha.c     \
 	ft_ctype/ft_isascii.c     \
 	ft_ctype/ft_isdigit.c     \
@@ -59,14 +59,17 @@ SRCS		:= ft_ctype/ft_isalnum.c \
 	ft_list/ft_lstmap.c       \
 	ft_list/ft_lstnew.c       \
 	ft_list/ft_lstsize.c
-INCDIR		:= .
-OUTDIR		:= .out
-OBJS 		:= $(addprefix $(OUTDIR)/, $(SRCS:.c=.o))
+INCDIR			:= .
+OUTDIR			:= .out
+OBJS 			:= $(addprefix $(OUTDIR)/, $(SRCS:.c=.o))
+FT_PRINTF_DIR	:= ft_printf
+FT_PRINTF_LIB	:= libftprintf.a
 
 all: $(NAME_A)
 
 $(NAME_A): $(OBJS)
-	$(AR) $(ARFLAGS) $@ $^
+	$(MAKE) -C $(FT_PRINTF_DIR)
+	$(AR) $(ARFLAGS) $@ $^ $(FT_PRINTF_LIB)
 
 $(OUTDIR)/%.o: %.c
 	mkdir -p $(dir $@)
@@ -74,9 +77,11 @@ $(OUTDIR)/%.o: %.c
 
 clean:
 	$(RM) -r $(OUTDIR)
+	$(MAKE) -C $(FT_PRINTF_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME_A)
+	$(MAKE) -C $(FT_PRINTF_DIR) fclean
 
 re: fclean all
 
